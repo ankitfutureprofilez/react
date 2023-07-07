@@ -54,7 +54,7 @@ function Reg() {
                                 <Form.Control type="text"
                                     value={name}
                                     onChange={(e) => { setName(e.target.value) }}
-                                    placeholder="name" />
+                                    placeholder="name"  />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
                                 <Form.Label>Email address</Form.Label>
@@ -83,7 +83,7 @@ function Reg() {
                                     value={phone}
                                     onChange={(e) => { setPhone(e.target.value) }}
 
-                                    placeholder="Phone" />
+                                    placeholder="Phone" required/>
                             </Form.Group>
 
                             <Link to="/login">     <Button variant="primary" className='form-control' onClick={handleform}  >

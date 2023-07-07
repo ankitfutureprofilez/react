@@ -24,10 +24,10 @@ function Login() {
         resp.then((res) => {
             if (res.data.status) {
                 toast.success(res && res.data && res.data.msg);
-                const d =JSON.stringify(res && res.data.user.username)
-                console.log(d)
+                const d = JSON.stringify(res && res.data.user.username)
+                //    console.log(d)
                 localStorage.setItem("auth", d);
-                
+
             } else {
                 toast.error(res && res.data && res.data.msg);
             }
@@ -52,7 +52,7 @@ function Login() {
                                     Email/uername
                                 </Form.Label>
 
-                                <Form.Control name="username"  onChange={handleInputs} type="text" placeholder="email/username" />
+                                <Form.Control name="username" onChange={handleInputs} type="text" placeholder="email/username" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formPlaintextPassword">
@@ -60,7 +60,7 @@ function Login() {
                                     Password
                                 </Form.Label>
 
-                                <Form.Control name="password"  onChange={handleInputs} value={data.password} type="password" placeholder="Password" />
+                                <Form.Control name="password" onChange={handleInputs} value={data.password} type="password" placeholder="Password" />
 
                             </Form.Group>
 
@@ -70,7 +70,7 @@ function Login() {
                         </Form>
                     </div>
                     <div className="col-md-3">
-                  
+
                     </div>
                 </div>
             </div>

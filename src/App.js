@@ -11,7 +11,7 @@ import Tab from './Compontent/Tab';
 import PrivateRoute from './api/PrivateRouter';
 
 function App() {
- // const isAuthenticated = true;
+  // const isAuthenticated = true;
   return (
     <Router>
 
@@ -25,10 +25,10 @@ function App() {
           }
         ></Route>
 
-             <Route path='/list'
+        <Route path='/list'
           element={
-             <PrivateRoute>
-              <List/>
+            <PrivateRoute>
+              <List />
             </PrivateRoute>
           }
         ></Route>

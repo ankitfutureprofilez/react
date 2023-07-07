@@ -13,8 +13,8 @@ class Users extends Component{
     async getusers(key){ 
         return Api.post('regapi/listdata', key)
     }
-    async usersget(form){ 
-        return Api.get('regapi/usersList',form)
+    async usersget(){ 
+        return Api.get('regapi/usersList')
     }
 
     async updateusersdata(id, form){ 

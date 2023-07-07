@@ -5,13 +5,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 
 function Header() {
-  function logout() {
-    
-    const d = JSON.stringify(
-       localStorage.setItem("auth", "lkhj")
-     )
-     console.log(d)
-  }
+  // function logout() {
+
+  //   const d = JSON.stringify(
+  //      localStorage.setItem("auth", "lkhj")
+  //    )
+  //    console.log(d)
+  // }
 
   return (
 
@@ -32,7 +32,6 @@ function Header() {
 
             </Nav>
           </Navbar.Collapse>
-          <button onClick={logout()}>Logout</button>
         </Container>
       </Navbar>
       <Toaster

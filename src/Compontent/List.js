@@ -8,18 +8,18 @@ function List() {
     const [list, setList] = useState([]);
     const [listUpdate, setListUpdate] = useState();
 
-useEffect((e)=>{
-const main=new Users()
-const tresponses=main.usersget(e)
-tresponses.then((res)=>{
-// console.log(res.data.data);
- setList(res.data.data)
-}).catch((err) => {
-    //console.log(err);
-});
+    useEffect(() => {
+        const main = new Users()
+        const tresponses = main.usersget()
+        tresponses.then((res) => {
+            // console.log(res.data);
+            setList(res.data.data)
+        }).catch((err) => {
+            console.log(err);
+        });
 
-},[listUpdate])
-  
+    }, [listUpdate])
+
     async function delte(e) {
         const main = new Users()
         const tresponse = main.deleteUser(e)

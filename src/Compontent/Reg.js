@@ -15,31 +15,31 @@ function Reg() {
 
     function handleform(e) {
         const main = new Users();
-        const formdata = { password, name, username,  confirmpasword, email, phone }
+        const formdata = { password, name, username, confirmpasword, email, phone }
         const response = main.register(formdata);
-        response.then((res)=>{ 
-            if(res.data.status){
+        response.then((res) => {
+            if (res.data.status) {
                 toast.success(res && res.data && res.data.msg);
-            } else { 
+            } else {
                 toast.error(res && res.data && res.data.msg);
             }
             console.log(res);
-        }).catch((err)=>{ 
+        }).catch((err) => {
             const error = err.errors;
             console.log(error);
 
         });
-       
+
     }
 
     return (
         <section id="reg">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-4">
+                    <div className="col-md-3">
 
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-6">
                         <Form >
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Label>Username</Form.Label>
@@ -86,13 +86,13 @@ function Reg() {
                                     placeholder="Phone" />
                             </Form.Group>
 
-                            <Link to="/login">     <Button variant="primary"className='form-control' onClick={handleform}  >
+                            <Link to="/login">     <Button variant="primary" className='form-control' onClick={handleform}  >
                                 Submit
                             </Button></Link>
 
                         </Form>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-3">
 
                     </div>
                 </div>

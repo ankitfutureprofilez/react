@@ -5,38 +5,38 @@ import Users from '../api/Users';
 import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 function Update() {
-    
+
     const [searchParams] = useSearchParams();
-    const  id = searchParams.get('id');
+    const id = searchParams.get('id');
 
     const [list, setList] = useState('');
-    
+
     const [data, setData] = useState({
         username: list.username ? list.username : '',
         name: list.name ? list.name : '',
         email: list.email ? list.email : '',
-        phone:list.phone ? list.phone : '',
+        phone: list.phone ? list.phone : '',
     });
 
-    function patch(){
+    function patch() {
         const main = new Users()
-        const tresponses = main.updateusersdata(id,list)
+        const tresponses = main.updateusersdata(id, list)
         tresponses.then((res) => {
-            console.log(res);
+          //  console.log(res);
             toast.success(res.data.msg);
         }).catch((err) => {
             console.log(err);
         });
     }
-   
+
 
     const handleInputs = (e) => {
         let valueattr = e.target.value;
         let nameattr = e.target.name;
-      //  let valueatt=e.target.value;
-     //   let phoneattributr= e.target.phone;
+        //  let valueatt=e.target.value;
+        //   let phoneattributr= e.target.phone;
         setList({ ...list, [nameattr]: valueattr });
-     ///   setData({ ...data, [phoneattributr]: valueatt });
+        ///   setData({ ...data, [phoneattributr]: valueatt });
 
         console.table(list);
     }
@@ -67,12 +67,12 @@ function Update() {
                         <Form>
                             <Form.Group className="mb-3" controlId="formPlaintextEmail">
                                 <Form.Label column sm="2">
-                                    uername 
+                                    uername
                                 </Form.Label>
 
                                 <Form.Control name="username"
-                                     value={list.username}
-                                onChange={handleInputs} type="text" placeholder="email/username" />
+                                    value={list.username}
+                                    onChange={handleInputs} type="text" placeholder="email/username" />
                             </Form.Group>
 
                             <Form.Group className="mb-3" controlId="formPlaintextPassword">
@@ -80,9 +80,9 @@ function Update() {
                                     name
                                 </Form.Label>
 
-                                <Form.Control name="name" 
-                              value={list.name}
-                                onChange={handleInputs}  type="text" placeholder="name" />
+                                <Form.Control name="name"
+                                    value={list.name}
+                                    onChange={handleInputs} type="text" placeholder="name" />
 
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="formPlaintextPassword">
@@ -96,11 +96,11 @@ function Update() {
 
                             <Form.Group className="mb-3" controlId="formPlaintextPassword">
                                 <Form.Label column sm="2">
-                                    Phone   
+                                    Phone
                                 </Form.Label>
 
                                 <Form.Control name="phone"
-                                 value={list.phone}  onChange={handleInputs} type="number" placeholder="phone" />
+                                    value={list.phone} onChange={handleInputs} type="number" placeholder="phone" />
 
                             </Form.Group>
                             <Button variant="primary" className='form-control' onClick={patch} >

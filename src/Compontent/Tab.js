@@ -5,42 +5,42 @@ import Users from '../api/Users';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 function Actives() {
-    
+
     const [listUpdate, setListUpdate] = useState();
-    
+
     const [key, setKey] = useState(1);
     const [list, setList] = useState([]);
 
-    useEffect((e)=>{
-        const main=new Users()
-        const tresponses=main.getusers({key:key})
-        tresponses.then((res)=>{
-         console.log(res.data.data);
-         setList(res.data.data)
+    useEffect(() => {
+        const main = new Users()
+        const tresponses = main.getusers({ key: key })
+        tresponses.then((res) => {
+            console.log(res.data);
+            setList(res.data.data)
         }).catch((err) => {
             //console.log(err);
         });
-    },[listUpdate, key])
+    }, [listUpdate, key])
 
 
-          
+
     async function delte(e) {
         const main = new Users()
         const tresponse = main.deleteUser(e)
-        //console.log(tresponse)
+        console.log(tresponse)
         setListUpdate(tresponse)
     }
-    return ( 
+    return (
 
         <Tabs
-        id="controlled-tab-example"
-        activeKey={key}
-        onSelect={(k) => setKey(k)}
-        className="mb-3"
-      >
+            id="controlled-tab-example"
+            activeKey={key}
+            onSelect={(k) => setKey(k)}
+            className="mb-3"
+        >
 
-        <Tab eventKey={1} title="Active Users">
-        <div className='col-md-12 table-responsive py-4 my-4'>
+            <Tab eventKey={1} title="Active Users">
+                <div className='col-md-12 table-responsive py-4 my-4'>
                     <Table striped>
                         <thead>
                             <tr>
@@ -64,7 +64,7 @@ function Actives() {
                                         <td>{sorc.email}</td>
                                         <td>{sorc.phone}</td>
                                         <td>{sorc.status}</td>
-                                       <td>
+                                        <td>
                                             <Link to={`/updatedata?id=${sorc._id}`}>Update</Link>
                                         </td>
                                         <td >
@@ -76,10 +76,10 @@ function Actives() {
                         </tbody>
                     </Table>
                 </div>
-        
-        </Tab>
-        <Tab eventKey={0} title="Deiete Users">
-        <div className='col-md-12 table-responsive py-4 my-4'>
+
+            </Tab>
+            <Tab eventKey={0} title="Deiete Users">
+                <div className='col-md-12 table-responsive py-4 my-4'>
                     <Table striped>
                         <thead>
                             <tr>
@@ -89,7 +89,7 @@ function Actives() {
                                 <th>email</th>
                                 <th>Phone</th>
                                 <th>Status</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -108,10 +108,10 @@ function Actives() {
                         </tbody>
                     </Table>
                 </div>
-        </Tab>
-     
-      </Tabs>
-     );
+            </Tab>
+
+        </Tabs>
+    );
 }
 
 export default Actives;

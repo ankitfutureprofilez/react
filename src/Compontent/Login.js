@@ -24,6 +24,10 @@ function Login() {
         resp.then((res) => {
             if (res.data.status) {
                 toast.success(res && res.data && res.data.msg);
+                const d =JSON.stringify(res && res.data.user.username)
+                console.log(d)
+                localStorage.setItem("auth", d);
+                
             } else {
                 toast.error(res && res.data && res.data.msg);
             }
@@ -66,7 +70,7 @@ function Login() {
                         </Form>
                     </div>
                     <div className="col-md-3">
-
+                  
                     </div>
                 </div>
             </div>

@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
-import Api from '../api/Api';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Users from '../api/Users';
 function List() {
 
 
     const [list, setList] = useState([]);
-    const _id = useParams();
     const [listUpdate, setListUpdate] = useState();
 
 useEffect((e)=>{
 const main=new Users()
-const tresponses=main.getusers(e)
+const tresponses=main.usersget(e)
 tresponses.then((res)=>{
 // console.log(res.data.data);
  setList(res.data.data)
@@ -21,44 +19,17 @@ tresponses.then((res)=>{
 });
 
 },[listUpdate])
-   // useEffect(() => {
-    //    Api.get('regapi/listdata').then((response) => {
-     //       setList(response.data.data)
-    //    })
-   // }, [listUpdate])
-
-   // console.log(list)
-
+  
     async function delte(e) {
         const main = new Users()
         const tresponse = main.deleteUser(e)
         //console.log(tresponse)
         setListUpdate(tresponse)
     }
-
-
-    // if (!list) return "No post!"
-    //  function deletePost() {
-    //  client
-    //   .delete("")
-    //     .then(() => {
-    ///      alert("Post deleted!");
-    /////       setPost(null)
-    ///     });
-    // }
-
-    // if (!list) return "No post!"
-    // }
-    //  React.useEffect(() => {
-    //    client.get("/1").then((response) => {
-    //   setPost(response.data);
-    //   });
-    // }, []);
-
     return (
         <section id="list">
             <div className='row'>
-                <div className='col-md-12'>
+                <div className='col-md-12 table-responsive py-4 my-4'>
                     <Table striped>
                         <thead>
                             <tr>
@@ -67,6 +38,7 @@ tresponses.then((res)=>{
                                 <th> Name</th>
                                 <th>email</th>
                                 <th>Phone</th>
+                                <th>Status</th>
                                 <th>Update</th>
                                 <th>Delte</th>
                             </tr>
@@ -80,9 +52,9 @@ tresponses.then((res)=>{
                                         <td>{sorc.name}</td>
                                         <td>{sorc.email}</td>
                                         <td>{sorc.phone}</td>
+                                        <td>{sorc.status}</td>
                                         <td>
-                                            <Link to="/updatedata">"Update</Link>
-                                                Update
+                                            <Link to={`/updatedata?id=${sorc._id}`}>Update</Link>
                                         </td>
                                         <td >
                                             <button onClick={() => delte(sorc._id)}>Delete</button>

@@ -7,20 +7,37 @@ import Footer from './Compontent/Footer';
 import Login from './Compontent/Login';
 import List from './Compontent/List';
 import Update from './Compontent/Update';
+import Tab from './Compontent/Tab';
+import PrivateRoute from './api/PrivateRouter';
 
 function App() {
+ // const isAuthenticated = true;
   return (
+    <Router>
 
-<Router>
-<Header/>
-<Routes>
-  <Route path='/' element={<Reg/>}></Route>
-  <Route path='/login' element={<Login/>}></Route>
-<Route path="/list" element={<List/>}></Route>
-<Route path='/updatedata'element={<Update/>}></Route>
-  </Routes>
-  <Footer/>
-</Router>
+      <Header />
+      <Routes>
+        <Route path='/tab'
+          element={
+            <PrivateRoute>
+              <Tab />
+            </PrivateRoute>
+          }
+        ></Route>
+
+             <Route path='/list'
+          element={
+             <PrivateRoute>
+              <List/>
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route path='/login' element={<Login />}></Route>
+        <Route path='/' element={<Reg />}></Route>
+        <Route path='/updatedata' element={<Update />}></Route>
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 

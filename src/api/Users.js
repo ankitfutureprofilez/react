@@ -2,9 +2,7 @@ import {Component} from 'react'
 import Api from './Api';
 class Users extends Component{ 
  
-    constructor(props){ 
-        super(props);
-    }
+    
     async register(form){ 
         return Api.post('regapi/reg', form)
     }
@@ -12,16 +10,22 @@ class Users extends Component{
         return Api.post('regapi/login', form)
     }
     
-    async getusers(form){ 
-        return Api.get('regapi/listdata', form)
+    async getusers(key){ 
+        return Api.post('regapi/listdata', key)
+    }
+    async usersget(form){ 
+        return Api.get('regapi/usersList',form)
     }
 
+    async updateusersdata(id, form){ 
+        return Api.patch(`regapi/dataid/${id}`, form)
+    }
    
-   async updateusers(id, form){ 
-        return Api.get(`regapi/getid/${id}`, form)
+   async getSingleUser(id){ 
+        return Api.get(`regapi/getid/${id}`)
     }
     async deleteUser(id, form){ 
-        return Api.delete(`regapi/delete/${id}`, form)
+        return Api.put(`regapi/delete/${id}`, form)
     }
     
 }

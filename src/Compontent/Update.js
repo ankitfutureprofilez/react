@@ -20,9 +20,10 @@ function Update() {
 
     function patch() {
         const main = new Users()
-        const tresponses = main.updateusersdata(id, list)
+        const tresponses = main.updateusersdata(id,list)
         tresponses.then((res) => {
           //  console.log(res);
+        
             toast.success(res.data.msg);
         }).catch((err) => {
             console.log(err);
@@ -47,14 +48,15 @@ function Update() {
         const main = new Users()
         const tresponses = main.getSingleUser(id)
         tresponses.then((res) => {
-            console.log(res.data.data);
+           // console.log(res.data.data);
             setList(res.data.data)
         }).catch((err) => {
             console.log(err);
         });
     }
     useEffect(() => {
-        getuserdata();
+        getuserdata( );
+    //    console.log(getuserdata(data,setData ))
     }, []);
 
 

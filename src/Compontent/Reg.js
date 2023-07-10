@@ -39,8 +39,9 @@ function Reg() {
                     <div className="col-md-3">
 
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-md-6 mr-2">
                         <Form >
+                            <h2 >Registration</h2>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                                 <Form.Label>Username</Form.Label>
                                 <Form.Control type="text"
@@ -54,7 +55,7 @@ function Reg() {
                                 <Form.Control type="text"
                                     value={name}
                                     onChange={(e) => { setName(e.target.value) }}
-                                    placeholder="name"  />
+                                    placeholder="name" />
                             </Form.Group>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlInput3">
                                 <Form.Label>Email address</Form.Label>
@@ -83,7 +84,7 @@ function Reg() {
                                     value={phone}
                                     onChange={(e) => { setPhone(e.target.value) }}
 
-                                    placeholder="Phone" required/>
+                                    placeholder="Phone" required />
                             </Form.Group>
 
                             <Link to="/login">     <Button variant="primary" className='form-control' onClick={handleform}  >

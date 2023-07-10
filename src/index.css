@@ -1,4 +1,9 @@
+#reg{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+#reg h2{
+    text-align: center;
+    text-decoration: dashed;
+}

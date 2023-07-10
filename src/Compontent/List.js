@@ -29,8 +29,8 @@ function List() {
     return (
         <section id="list">
             <div className='row'>
-                <div className='col-md-12 table-responsive py-4 my-4'>
-                    <Table striped>
+                <div className='col-md-12 table-responsive '>
+                    <Table hovestriped bordered hover>
                         <thead>
                             <tr>
                                 <th>S.no</th>
@@ -54,10 +54,13 @@ function List() {
                                         <td>{sorc.phone}</td>
                                         <td>{sorc.status}</td>
                                         <td>
-                                            <Link to={`/updatedata?id=${sorc._id}`}>Update</Link>
+
+                                                <Link to={`/updatedata?id=${sorc._id}`}><i class="bi bi-pencil-square"></i></Link>
+
                                         </td>
                                         <td >
-                                            <button onClick={() => delte(sorc._id)}>Delete</button>
+                                            <button onClick={() => delte(sorc._id)}>
+                                                <i class="bi bi-trash-fill"></i></button>
                                         </td>
                                     </tr>
                                 );

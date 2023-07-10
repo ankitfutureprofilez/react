@@ -15,7 +15,7 @@ function Actives() {
         const main = new Users()
         const tresponses = main.getusers({ key: key })
         tresponses.then((res) => {
-            console.log(res.data);
+            //    console.log(res.data);
             setList(res.data.data)
         }).catch((err) => {
             //console.log(err);
@@ -27,7 +27,7 @@ function Actives() {
     async function delte(e) {
         const main = new Users()
         const tresponse = main.deleteUser(e)
-        console.log(tresponse)
+        //console.log(tresponse)
         setListUpdate(tresponse)
     }
     return (
@@ -41,7 +41,7 @@ function Actives() {
 
             <Tab eventKey={1} title="Active Users">
                 <div className='col-md-12 table-responsive py-4 my-4'>
-                    <Table striped>
+                    <Table hovestriped bordered hover>
                         <thead>
                             <tr>
                                 <th>S.no</th>
@@ -65,10 +65,13 @@ function Actives() {
                                         <td>{sorc.phone}</td>
                                         <td>{sorc.status}</td>
                                         <td>
-                                            <Link to={`/updatedata?id=${sorc._id}`}>Update</Link>
+                                            <button >
+
+                                                <Link to={`/updatedata?id=${sorc._id}`}><i class="bi bi-pencil-square"></i></Link>
+                                            </button>
                                         </td>
                                         <td >
-                                            <button onClick={() => delte(sorc._id)}>Delete</button>
+                                            <button onClick={() => delte(sorc._id)}><i class="bi bi-trash-fill"></i></button>
                                         </td>
                                     </tr>
                                 );
@@ -80,7 +83,7 @@ function Actives() {
             </Tab>
             <Tab eventKey={0} title="Deiete Users">
                 <div className='col-md-12 table-responsive py-4 my-4'>
-                    <Table striped>
+                    <Table hovestriped bordered hover>
                         <thead>
                             <tr>
                                 <th>S.no</th>

@@ -1,11 +1,14 @@
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import Users from '../api/Users';
+import { useNavigate } from 'react-router-dom';
+import { Context } from './Context';
 
 function Login() {
-
+    const { setLoginname, setLoginstatus } = useContext(Context)
+    const navigate = useNavigate()
     const [data, setData] = useState({
         password: "",
         username: "",
@@ -23,10 +26,18 @@ function Login() {
         const resp = main.login(data);
         resp.then((res) => {
             if (res.data.status) {
+
+
                 toast.success(res && res.data && res.data.msg);
                 const d = JSON.stringify(res && res.data.user.username)
-                //    console.log(d)
-                localStorage.setItem("auth", d);
+                console.log(d)
+                localStorage.setItem('loginname', d)
+                setLoginname(localStorage.getItem('loginname'));
+
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem('loginstatus', 1)
+                setLoginstatus(localStorage.getItem('loginstatus'))
+                navigate('/list')
 
             } else {
                 toast.error(res && res.data && res.data.msg);
@@ -39,13 +50,14 @@ function Login() {
 
 
     return (
-        <section id="form">
+        <section id="reg">
             <div className="container">
                 <div className="row">
                     <div className="col-md-3">
 
                     </div>
                     <div className="col-md-6">
+                        <h2>Login</h2>
                         <Form>
                             <Form.Group className="mb-3" controlId="formPlaintextEmail">
                                 <Form.Label column sm="2">
@@ -63,7 +75,6 @@ function Login() {
                                 <Form.Control name="password" onChange={handleInputs} value={data.password} type="password" placeholder="Password" />
 
                             </Form.Group>
-
                             <Button variant="primary" className="form-control" onClick={handleforms}  >
                                 Submit
                             </Button>

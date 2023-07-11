@@ -105,7 +105,7 @@ function Update() {
                                     value={list.phone} onChange={handleInputs} type="number" placeholder="phone" />
 
                             </Form.Group>
-                            <Button variant="primary" className='form-control' onClick={patch} >
+      <Button variant="primary" className='form-control' onClick={patch} >
                                 Submit
                             </Button>
                         </Form>

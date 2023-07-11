@@ -31,8 +31,13 @@ function Actives() {
         setListUpdate(tresponse)
     }
     return (
+        <section id="tab">
+            <div className='conatiner'>
+                <div className='row'>
+                    <div className='col-md-12'>
+                    <h2>Lists Active And Delete Users</h2>
 
-        <Tabs
+                    <Tabs
             id="controlled-tab-example"
             activeKey={key}
             onSelect={(k) => setKey(k)}
@@ -41,6 +46,7 @@ function Actives() {
 
             <Tab eventKey={1} title="Active Users">
                 <div className='col-md-12 table-responsive py-4 my-4'>
+
                     <Table hovestriped bordered hover>
                         <thead>
                             <tr>
@@ -114,6 +120,14 @@ function Actives() {
             </Tab>
 
         </Tabs>
+                    </div>
+                </div>
+      
+
+            </div>
+        </section>
+
+   
     );
 }
 

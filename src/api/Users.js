@@ -27,6 +27,26 @@ class Users extends Component{
     async deleteUser(id, form){ 
         return Api.put(`regapi/delete/${id}`, form)
     }
+
+    async products(key){ 
+        return Api.post('regapi/product', key)
+    }
+
+    async productshow(){ 
+        return Api.get('regapi/product')
+    }
+    async productdelte(id){ 
+        return Api.delete(`regapi/product/${id}`)
+    }
+    
+    async productupdate(id, form){ 
+        return Api.patch(`regapi/Product/${id}`, form)
+    }
+
+      
+    async productid(id){ 
+        return Api.get(`regapi/Products/${id}`)
+    }
     
 }
 export default Users;

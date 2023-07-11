@@ -28,47 +28,51 @@ function List() {
     }
     return (
         <section id="list">
-            <div className='row'>
-                <div className='col-md-12 table-responsive '>
-                    <Table hovestriped bordered hover>
-                        <thead>
-                            <tr>
-                                <th>S.no</th>
-                                <th>Username</th>
-                                <th> Name</th>
-                                <th>email</th>
-                                <th>Phone</th>
-                                <th>Status</th>
-                                <th>Update</th>
-                                <th>Delte</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {list && list.map((sorc, index) => {
-                                return (
-                                    <tr key={sorc._id}>
-                                        <td>{index + 1}</td>
-                                        <td>{sorc.username}</td>
-                                        <td>{sorc.name}</td>
-                                        <td>{sorc.email}</td>
-                                        <td>{sorc.phone}</td>
-                                        <td>{sorc.status}</td>
-                                        <td>
+            <div className="container">
+                <div className='row'>
+                    <div className='col-md-12 table-responsive '>
+                        <h2 >User Lists</h2>
+                        <Table hovestriped bordered hover>
+                            <thead>
+                                <tr>
+                                    <th>S.no</th>
+                                    <th>Username</th>
+                                    <th> Name</th>
+                                    <th>email</th>
+                                    <th>Phone</th>
+                                    <th>Status</th>
+                                    <th>Update</th>
+                                    <th>Delte</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {list && list.map((sorc, index) => {
+                                    return (
+                                        <tr key={sorc._id}>
+                                            <td>{index + 1}</td>
+                                            <td>{sorc.username}</td>
+                                            <td>{sorc.name}</td>
+                                            <td>{sorc.email}</td>
+                                            <td>{sorc.phone}</td>
+                                            <td>{sorc.status}</td>
+                                            <td>
 
                                                 <Link to={`/updatedata?id=${sorc._id}`}><i class="bi bi-pencil-square"></i></Link>
 
-                                        </td>
-                                        <td >
-                                            <button onClick={() => delte(sorc._id)}>
-                                                <i class="bi bi-trash-fill"></i></button>
-                                        </td>
-                                    </tr>
-                                );
-                            })}
-                        </tbody>
-                    </Table>
+                                            </td>
+                                            <td >
+                                                <button onClick={() => delte(sorc._id)}>
+                                                    <i class="bi bi-trash-fill"></i></button>
+                                            </td>
+                                        </tr>
+                                    );
+                                })}
+                            </tbody>
+                        </Table>
+                    </div>
                 </div>
             </div>
+
 
         </section>
     );

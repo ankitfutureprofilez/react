@@ -29,64 +29,75 @@ function Login() {
 
 
                 toast.success(res && res.data && res.data.msg);
-                const d = JSON.stringify(res && res.data.user.username)
-                console.log(d)
+                const d = (res && res.data.user.username)
+
+                //  console.log(d)
                 localStorage.setItem('loginname', d)
-                setLoginname(localStorage.getItem('loginname'));
+                const logins = localStorage.getItem('loginname')
+                setLoginname(logins);
 
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem('loginstatus', 1)
                 setLoginstatus(localStorage.getItem('loginstatus'))
-                navigate('/list')
+                if (res && res.data.user.status ===1
+                ) {
+                    navigate('/admin')
+                }
+                else {
+                    navigate('/user')
 
-            } else {
-                toast.error(res && res.data && res.data.msg);
             }
-        }).catch((err) => {
-            console.log(err);
-        });
-    }
+        } else {
+            toast.error(res && res.data && res.data.msg);
+        }
+                 
+
+
+        }).catch ((err) => {
+        console.log(err);
+    });
+}
 
 
 
-    return (
-        <section id="reg">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-3">
+return (
+    <section id="reg">
+        <div className="container">
+            <div className="row">
+                <div className="col-md-3">
 
-                    </div>
-                    <div className="col-md-6">
-                        <h2>Login</h2>
-                        <Form>
-                            <Form.Group className="mb-3" controlId="formPlaintextEmail">
-                                <Form.Label column sm="2">
-                                    Email/uername
-                                </Form.Label>
+                </div>
+                <div className="col-md-6">
+                    <h2>Login</h2>
+                    <Form>
+         <Form.Group className="mb-3" controlId="formPlaintextEmail">
+                            <Form.Label column sm="2">
+                                Email/uername
+                            </Form.Label>
+    <Form.Control name="username" onChange={handleInputs} type="text"
+     placeholder="email/username" />
+                        </Form.Group>
 
-                                <Form.Control name="username" onChange={handleInputs} type="text" placeholder="email/username" />
-                            </Form.Group>
+                        <Form.Group className="mb-3" controlId="formPlaintextPassword">
+                            <Form.Label column sm="2">
+                                Password
+                            </Form.Label>
 
-                            <Form.Group className="mb-3" controlId="formPlaintextPassword">
-                                <Form.Label column sm="2">
-                                    Password
-                                </Form.Label>
+                            <Form.Control name="password" onChange={handleInputs} value={data.password} type="password" placeholder="Password" />
 
-                                <Form.Control name="password" onChange={handleInputs} value={data.password} type="password" placeholder="Password" />
+                        </Form.Group>
+     <Button variant="primary" className="form-control" onClick={handleforms}  >
+                            Submit
+                        </Button>
+                    </Form>
+                </div>
+                <div className="col-md-3">
 
-                            </Form.Group>
-                            <Button variant="primary" className="form-control" onClick={handleforms}  >
-                                Submit
-                            </Button>
-                        </Form>
-                    </div>
-                    <div className="col-md-3">
-
-                    </div>
                 </div>
             </div>
-        </section>
-    );
+        </div>
+    </section>
+);
 }
 
 export default Login;

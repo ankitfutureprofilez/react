@@ -1,9 +1,34 @@
-#reg{
+#reg {
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-#reg h2{
+#reg h2 {
     text-align: center;
     text-decoration: dashed;
+}
+
+#list h2 {
+    text-align: center;
+}
+
+#tab h2 {
+    text-align: center;
+}
+
+#prod {
+    margin-top: 12px;
+    margin-bottom: 12px;
+
+}
+
+#listing {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+#prod h2{
+    align-items: center;
+    text-align: center;
+
 }

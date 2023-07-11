@@ -11,6 +11,10 @@ import Tab from './Compontent/Tab';
 import PrivateRoute from './api/PrivateRouter';
 import { Context } from './Compontent/Context';
 import { useState } from 'react';
+import Admin from './Compontent/Admin';
+import Users from './Compontent/Users';
+import Product from './Compontent/Product';
+import Produclist from './Compontent/ProductList';
 
 function App() {
   // const isAuthenticated = true;
@@ -41,6 +45,11 @@ function App() {
                   }
                 ></Route>
                 <Route path='/updatedata' element={<Update />}></Route>
+                <Route path="/user" element={<Users/>}></Route>
+           <Route path="/admin" element={<Admin/>}></Route>
+           <Route path='/product' element={<Product/>}></Route>
+           <Route path='/productlist' element={<Produclist/>}></Route>
+
               </>
               :
               <>

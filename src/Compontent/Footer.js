@@ -1,42 +1,43 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 function Footer() {
 
   return (
-    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
-      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-        <div className='me-5 d-none d-lg-block'>
-          <span>Get connected with us on social networks:</span>
-        </div>
+    <section id="footer">
+      <div className='row'>
+        <div className='col-md-12'>
+        <MDBFooter className='text-center text-lg-start text-muted'>
+      <section className='d-flex justify-content-center justify-content-lg-between p-4 '>
 
         <div>
-          <a href='' className='me-4 text-reset'>
+          <Link to='' className='me-4 text-reset'>
             <MDBIcon fab icon="facebook-f" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="twitter" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="google" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="instagram" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="linkedin" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="github" />
-          </a>
+          </Link>
+          <Link to='' className='me-4 text-reset'>
+            <MDBIcon fab icon="facebook-f" />
+          </Link>
+          <Link to='' className='me-4 text-reset'>
+            <MDBIcon fab icon="facebook-f" />
+          </Link>
+          <Link to='' className='me-4 text-reset'>
+            <MDBIcon fab icon="facebook-f" />
+          </Link>
+          <Link to='' className='me-4 text-reset'>
+            <MDBIcon fab icon="facebook-f" />
+          </Link>
+          <Link to='' className='me-4 text-reset'>
+            <MDBIcon fab icon="facebook-f" />
+          </Link>
         </div>
       </section>
 
       <section className=''>
         <MDBContainer className='text-center text-md-start mt-5'>
-          <MDBRow className='mt-3'>
+          <MDBRow className='mt-2'>
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>
+              <h6 className='text-uppercase  mb-4'>
                 <MDBIcon icon="gem" className="me-3" />
                 Company name
               </h6>
@@ -49,48 +50,48 @@ function Footer() {
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
               <p>
-                <a href='#!' className='text-reset'>
-                  Angular
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
+                <Link to='' className='text-reset'>
                   React
-                </a>
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Vue
-                </a>
+                <Link to='' className='text-reset'>
+                  React
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
-                </a>
+                <Link to='' className='text-reset'>
+                  React
+                </Link>
+              </p>
+              <p>
+                <Link to='' className='text-reset'>
+                  React
+                </Link>
               </p>
             </MDBCol>
 
             <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
-                <a href='#!' className='text-reset'>
-                  Pricing
-                </a>
+                <Link to='' className='text-reset'>
+                  React
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Settings
-                </a>
+                <Link to='' className='text-reset'>
+                  React
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Orders
-                </a>
+                <Link to='' className='text-reset'>
+                  React
+                </Link>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Help
-                </a>
+                <Link to='' className='text-reset'>
+                  React
+                </Link>
               </p>
             </MDBCol>
 
@@ -115,8 +116,12 @@ function Footer() {
         </MDBContainer>
       </section>
 
-    
+
     </MDBFooter>
+        </div>
+      </div>
+    </section>
+   
 
 
   );

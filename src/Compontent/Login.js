@@ -39,65 +39,67 @@ function Login() {
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem('loginstatus', 1)
                 setLoginstatus(localStorage.getItem('loginstatus'))
-                if (res && res.data.user.status ===1
-                ) {
-                    navigate('/admin')
+                if (res && res.data.user.status === 1) {
+                        navigate('/admin')
+                    }
+                    else{
+                        navigate('/Products')
+                    }
                 }
-                else {
-                    navigate('/user')
 
+
+            else {
+                toast.error(res && res.data && res.data.msg);
             }
-        } else {
-            toast.error(res && res.data && res.data.msg);
-        }
-                 
-
-
-        }).catch ((err) => {
-        console.log(err);
-    });
-}
 
 
 
-return (
-    <section id="reg">
-        <div className="container">
-            <div className="row">
-                <div className="col-md-3">
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
 
-                </div>
-                <div className="col-md-6">
-                    <h2>Login</h2>
-                    <Form>
-         <Form.Group className="mb-3" controlId="formPlaintextEmail">
-                            <Form.Label column sm="2">
-                                Email/uername
-                            </Form.Label>
-    <Form.Control name="username" onChange={handleInputs} type="text"
-     placeholder="email/username" />
-                        </Form.Group>
 
-                        <Form.Group className="mb-3" controlId="formPlaintextPassword">
-                            <Form.Label column sm="2">
-                                Password
-                            </Form.Label>
 
-                            <Form.Control name="password" onChange={handleInputs} value={data.password} type="password" placeholder="Password" />
 
-                        </Form.Group>
-     <Button variant="primary" className="form-control" onClick={handleforms}  >
-                            Submit
-                        </Button>
-                    </Form>
-                </div>
-                <div className="col-md-3">
+    return (
+        <section id="reg">
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-3">
 
+                    </div>
+                    <div className="col-md-6">
+                        <h2>Login</h2>
+                        <Form>
+                            <Form.Group className="mb-3" controlId="formPlaintextEmail">
+                                <Form.Label column sm="2">
+                                    Email/uername
+                                </Form.Label>
+                                <Form.Control name="username" onChange={handleInputs} type="text"
+                                    placeholder="email/username" />
+                            </Form.Group>
+
+                            <Form.Group className="mb-3" controlId="formPlaintextPassword">
+                                <Form.Label column sm="2">
+                                    Password
+                                </Form.Label>
+
+                                <Form.Control name="password" onChange={handleInputs} value={data.password} type="password" placeholder="Password" />
+
+                            </Form.Group>
+                            <Button variant="primary" className="form-control" onClick={handleforms}  >
+                                Submit
+                            </Button>
+                        </Form>
+                    </div>
+                    <div className="col-md-3">
+
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-);
+        </section>
+    );
 }
 
 export default Login;

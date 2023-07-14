@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import Users from '../api/Users';
 import Produpdate from './Produpdate';
 function Produclist() {
- 
+
   const [list, setList] = useState([]);
   const [listUpdate, setListUpdate] = useState();
 
@@ -16,7 +16,9 @@ function Produclist() {
     const main = new Users()
     const resp = main.productshow()
     resp.then((res) => {
-    //  console.log(res.data);
+      //  console.log(userId)
+      //setUserId(data.userId);
+      console.log(res.data.data);
       setList(res.data.data)
     })
   }, [listUpdate])
@@ -26,7 +28,7 @@ function Produclist() {
     const response = main.productdelte(e)
     response.then((res) => {
       //  console.log(res);
-    //  console.log(res)
+      //  console.log(res)
       setListUpdate(res)
 
     }).catch((err) => {
@@ -39,47 +41,47 @@ function Produclist() {
 
 
   return (
-    <section id="listing">
-      <Container>
+    <section id="productlist">
+      <Container >
         <Row>
           <Col sm={2}>
             <Left />
           </Col>
           <Col sm={10}>
             <div>
-              <Table responsive="sm">
+              <Table className="table-responsive border border-success border border-radius-3 ">
                 <thead>
                   <tr>
                     <th>S.No</th>
-
-                    <th>Name</th>
-                    <th>Desc</th>
-                    <th>Price</th>
-                    <th>Year</th>
+                    <th>IMG</th>
+                    <th>NAME</th>
+                    <th>DESC.</th>
+                    <th>PRICE</th>
+                    <th>YEAR</th>
                     <th>EMI</th>
-                    <th>Rating</th>
-                    <th>Delete</th>
-                    <th>Update</th>
+                    <th>RATING</th>
+                    <th>DELETE</th>
+                    <th>UPDATE</th>
                   </tr>
                 </thead>
                 <tbody>
                   {list && list.map((res, key) => (
                     <tr key={res._id} >
                       <td>{key + 1}</td>
+                      <td>IMG</td>
                       <td>{res.name}</td>
                       <td>{res.desc}</td>
                       <td>{res.price}</td>
                       <td>{res.year}</td>
                       <td>{res.emi}</td>
                       <td>{res.rating}</td>
-                      <td> <button onClick={() => deleteProduct(res._id)}>
-                        <i class="bi bi-trash-fill"></i></button></td>
+                      <td onClick={() => deleteProduct(res._id)}>
+                        <i class="bi bi-trash-fill"></i></td>
                       <td>
                         <Produpdate id={res._id} data={res} />
 
                       </td>
 
-                      <td></td>
                     </tr>
 
                   ))}

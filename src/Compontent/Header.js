@@ -22,45 +22,51 @@ function Header() {
     <section id="header">
       <div className='container'>
         <div className='row'>
-          <header className='mt-2'>
+          <header >
 
 
 
             <Navbar bg="white" data-bs-theme="dark">
               <Container>
 
-                <Navbar.Brand href="#home"><img src='images.jpg' width="50px" height="50px" /></Navbar.Brand>
-                
+                <Navbar.Brand href="/"><img  src='images.jpg' width="50px"  height="50px" className='me-2'/></Navbar.Brand>
+
                 <Nav className="me-auto mr-2 ml-2">
                   {loginstatus ?
                     <>
-       <Link to="/list" className='text-dark font-bold  ml-3 mr-3' ><button>Users</button></Link>
-                  
-                  
-                      <Link to="/tab" className='text-dark font-bold  ml-3 mr-3'>
-                 <button>
-                 Listing
-                 </button>
-                </Link>
+                      <Link to="/list" className='text-dark font-bold  me-1' ><button>Users</button></Link>
+
+
+                      <Link to="/tab" className='text-dark font-bold  me-1'>
+                        <button>
+                          Listing
+                        </button>
+                      </Link>
 
                     </>
                     :
                     <>
-                      <Link className='text-dark font-bold ml-3 mr-3' to="/login">Login</Link>
-                      <Link className='text-dark font-bold  ml-3 mr-3' to="/">Registration</Link>
+                      <Link className='text-dark font-bold me-2' to="/login">
+                        <button>Login
+                        </button></Link>
+                      <Link className='text-dark font-bold  me-2' to="/">
+                        <button>
+                          Registration
+                        </button>
+                      </Link>
                     </>
                   }
                 </Nav>
-                {loginstatus?
-                <>  <div className='rightactions d-flex align-items-center' >
-                <strong className='me-3 d-inline-block text-capitalize'>{loginname}</strong>
-                 <button onClick={(e) => { handlelogout(e) }}
-                className='btn btn-danger' ><i class="bi bi-box-arrow-right  "></i></button> 
-               </div>
-                </>
-              
-                : <>
-                </>
+                {loginstatus ?
+                  <>  <div className='rightactions d-flex align-items-center' >
+                    <strong className='me-3 d-inline-block text-capitalize'><button>{loginname}</button></strong>
+                    <button onClick={(e) => { handlelogout(e) }}
+                      className='btn btn-danger' ><i class="bi bi-box-arrow-right  "></i></button>
+                  </div>
+                  </>
+
+                  : <>
+                  </>
                 }
               </Container>
             </Navbar>

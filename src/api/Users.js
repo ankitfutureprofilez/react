@@ -48,5 +48,8 @@ class Users extends Component{
         return Api.get(`regapi/Products/${id}`)
     }
     
+    async userproductshow(){ 
+        return Api.get('regapi/usershow')
+    }
 }
 export default Users;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import Users from '../api/Users';
+import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 function List() {
 
 
@@ -12,7 +12,7 @@ function List() {
         const main = new Users()
         const tresponses = main.usersget()
         tresponses.then((res) => {
-            // console.log(res.data);
+          console.log(res.data);
             setList(res.data.data)
         }).catch((err) => {
             console.log(err);
@@ -30,22 +30,24 @@ function List() {
         <section id="list">
             <div className="container">
                 <div className='row'>
-                    <div className='col-md-12 table-responsive '>
+                    <div className='table-responsive border boder-color:black  border-Radius:20'>
                         <h2 >User Lists</h2>
-                        <Table hovestriped bordered hover>
-                            <thead>
+
+                        <MDBTable>
+                            <MDBTableHead  >
                                 <tr>
-                                    <th>S.no</th>
-                                    <th>Username</th>
-                                    <th> Name</th>
-                                    <th>email</th>
-                                    <th>Phone</th>
-                                    <th>Status</th>
-                                    <th>Update</th>
-                                    <th>Delte</th>
+                                    <th>S. NO</th>
+                                    <th>USERNAME</th>
+                                    <th> NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>PHONE</th>
+                                    <th>STATUS</th>
+                                    <th>UPDATE</th>
+                                    <th>DELETE</th>
                                 </tr>
-                            </thead>
-                            <tbody>
+                            </MDBTableHead>
+                            <MDBTableBody>
+
                                 {list && list.map((sorc, index) => {
                                     return (
                                         <tr key={sorc._id}>
@@ -67,8 +69,10 @@ function List() {
                                         </tr>
                                     );
                                 })}
-                            </tbody>
-                        </Table>
+
+                            </MDBTableBody>
+                        </MDBTable>
+                      
                     </div>
                 </div>
             </div>

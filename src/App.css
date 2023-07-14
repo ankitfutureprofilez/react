@@ -1,3 +1,93 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+#reg {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: blanchedalmond;
+}
+
+#reg h2 {
+    text-align: center;
+    text-decoration: dashed;
+    color: blue;
+}
+
+#list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: content-box;
+    justify-Content: center;
+
+}
+
+#list .container {
+    border: 3px;
+    border-color: black;
+}
+
+#list h2 {
+    text-align: start;
+    color: blue;
+}
+
+
+#prod {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: aliceblue;
+}
+
+
+#prod h2 {
+    align-items: center;
+    text-align: center;
+
+}
+
+#tab {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px black solid;
+    justify-Content: center;
+}
+
+#tab .container {
+    border: 3px;
+    border-color: black;
+}
+
+#tab h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: start;
+}
+
+
+
+#productlist {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    box-sizing: content-box;
+    justify-Content: center;
+}
+
+#productlist .container {
+    border: 3px;
+    border-color: black;
+}
+
+#productlist h2 {
+    text-align: start;
+    color: blue;
+}
+
+#header {
+    color: black;
+}
+
+#footer {
+    color: black;
+}
+
+#users{
+margin: 20px;
+
+}

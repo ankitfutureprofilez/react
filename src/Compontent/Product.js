@@ -2,7 +2,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import Left from './Left';
 import { useState } from 'react';
 import Users from '../api/Users';
@@ -32,7 +31,7 @@ function Product() {
 
     async function hadelform(e) {
         const main = new Users();
-        const fdata = new FormData;
+        const fdata = new FormData();
         fdata.append("name", Product.name);
         fdata.append("desc", Product.desc);
         fdata.append("year", Product.year);
